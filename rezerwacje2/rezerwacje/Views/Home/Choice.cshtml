@@ -1,0 +1,36 @@
+﻿@model Events
+@{
+    ViewBag.Title = "Choice";
+}
+<h1></h1>
+<h2>Wybierz sale</h2>
+@using (Html.BeginForm("Index","Home"))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>
+                    Sala 1
+                    @Html.RadioButtonFor(model => model.Room, "Sala_1")
+                </p>
+                <p>
+                    Sala 2
+                    @Html.RadioButtonFor(model => model.Room, "Sala_2")
+                </p>
+
+                <p>
+                    Sala 3
+                    @Html.RadioButtonFor(model => model.Room, "Sala_3")
+                </p>
+                <p>
+                    Sala 4
+                    @Html.RadioButtonFor(model => model.Room, "Sala_4")
+                <p>
+                    Sala 5
+                    @Html.RadioButtonFor(model => model.Room, "Sala_5")
+                </p>
+                <p><input type="submit" value="Wybierz" class="btn btn-default"/></p>
+            </div>
+        </div>
+    </div>
+}
