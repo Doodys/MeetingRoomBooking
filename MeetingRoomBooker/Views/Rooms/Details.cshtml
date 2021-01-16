@@ -1,0 +1,68 @@
+﻿@model MeetingRoomBooker.Data.Models.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @if (Model.Status == true)
+            {
+                @Html.Encode("Booked")
+            }
+            @if (Model.Status == false)
+            {
+                @Html.Encode("Free")
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeId)
+        </dd>
+
+        @*@if (Model.RoomStatus != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomStatus.MeetingStart)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomStatus.MeetingStart)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomStatus.MeetingEnd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomStatus.MeetingEnd)
+            </dd>
+        }*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

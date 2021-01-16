@@ -1,0 +1,60 @@
+﻿@using MeetingRoomBooker.Data.Models
+@using System.Linq;
+@model MeetingRoomBooker.Data.Models.RoomStatus
+
+@{
+    ViewBag.Title = "Book meeting room";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Room</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Room.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(model => model.Room.Number)
+            @Html.ValidationMessageFor(model => model.Room.Number, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Room.TypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(model => model.Room.TypeId)
+            @Html.ValidationMessageFor(model => model.Room.TypeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Meeting Start</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MeetingStartDay, new { htmlAttributes = new { @class = "datefield", @type = "date" } })
+            @Html.EditorFor(model => model.MeetingStartHour, new { htmlAttributes = new { @class = "datefield", @type = "time" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Meeting End</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MeetingEndDay, new { htmlAttributes = new { @class = "datefield", @type = "date" } })
+            @Html.EditorFor(model => model.MeetingEndHour, new { htmlAttributes = new { @class = "datefield", @type = "time" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Book" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

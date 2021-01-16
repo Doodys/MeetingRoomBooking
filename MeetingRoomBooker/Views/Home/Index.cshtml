@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MeetingRoomBooker.Data.Models.Room>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Meeting Room Booking Site</h1>
+    <div>
+        @if(Model.Where(m => m.Status == false).Count() == 0 || Model == null)
+        {
+            <p>Currently there are no free rooms!</p>
+        }
+        else
+        {
+            <p>Currently there are @Model.Where(m => m.Status == false).Count() free rooms!</p>
+        }
+    </div>
+</div>
